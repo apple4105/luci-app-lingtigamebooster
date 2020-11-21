@@ -23,6 +23,7 @@ define Package/$(PKG_NAME)
 	SUBMENU:=3. Applications
 	TITLE:=LuCI Support for LingTiGameAcc
 	MAINTAINER:=eSir Playground <https://github.com/esirplayground/luci-app-LingTiGameAcc>
+	PKGARCH:=all
 	DEPENDS:=+lingtigameacc
 endef
 
