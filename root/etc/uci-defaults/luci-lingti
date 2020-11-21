@@ -3,7 +3,7 @@
 uci -q batch <<-EOF >/dev/null
 	delete ucitrack.@lingti[-1]
 	add ucitrack lingti
-	set ucitrack.@lingti[-1].init=lingti_luci
+	set ucitrack.@lingti[-1].init=lingti
 	commit ucitrack
 EOF
 
