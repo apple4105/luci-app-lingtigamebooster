@@ -6,7 +6,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=luci-app-LingTiGameAcc
+PKG_NAME:=luci-app-lingtigameacc
 PKG_VERSION:=20201108
 PKG_RELEASE:=2
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
@@ -21,30 +21,30 @@ define Package/$(PKG_NAME)
 	SECTION:=luci
 	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
-	TITLE:=LuCI App of LingTiGameAcc
-	MAINTAINER:=esirplayground<https://github.com/esirplayground/luci-app-LingTiGameAcc>
-	DEPENDS:=+LingTiGameAcc
+	TITLE:=LuCI Support for LingTiGameAcc
+	MAINTAINER:=eSir Playground <https://github.com/esirplayground/luci-app-LingTiGameAcc>
+	DEPENDS:=+lingtigameacc
 endef
 
 define Package/$(PKG_NAME)/description
-	LuCI App of LingTi Game Accelerator
+	LuCI Support for LingTi Game Accelerator.
 endef
 
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_CONF) root/etc/config/lingti $(1)/etc/config/lingti
-	
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) root/etc/init.d/lingti $(1)/etc/init.d/lingti
-
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_CONF) root/etc/uci-defaults/* $(1)/etc/uci-defaults
-	
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci
 	cp -pR luasrc/* $(1)/usr/lib/lua/luci/
-	
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	po2lmo po/zh-cn/lingti.po $(1)/usr/lib/lua/luci/i18n/lingti.zh-cn.lmo
+endef
+
+define Package/$(PKG_NAME)/conffiles
+/etc/config/lingti
 endef
 
 define Package/$(PKG_NAME)/postinst
