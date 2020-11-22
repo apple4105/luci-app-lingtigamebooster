@@ -31,6 +31,12 @@ define Package/$(PKG_NAME)/description
 	LuCI Support for LingTi Game Accelerator.
 endef
 
+define Build/Prepare
+endef
+
+define Build/Compile
+endef
+
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_CONF) root/etc/config/lingti $(1)/etc/config/lingti
