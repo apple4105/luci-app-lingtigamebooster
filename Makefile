@@ -24,7 +24,7 @@ define Package/$(PKG_NAME)
 	TITLE:=LuCI Support for LingTiGameAcc
 	MAINTAINER:=eSir Playground <https://github.com/esirplayground/luci-app-LingTiGameAcc>
 	PKGARCH:=all
-	DEPENDS:=+lingtigameacc
+	DEPENDS:=+kmod-tun
 endef
 
 define Package/$(PKG_NAME)/description
@@ -44,6 +44,8 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_BIN) root/etc/init.d/lingti $(1)/etc/init.d/lingti
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_CONF) root/etc/uci-defaults/* $(1)/etc/uci-defaults
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) root/usr/sbin/lingti $(1)/usr/sbin/lingti
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci
 	cp -pR luasrc/* $(1)/usr/lib/lua/luci/
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n

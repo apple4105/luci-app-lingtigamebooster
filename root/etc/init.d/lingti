@@ -1,22 +1,25 @@
 #!/bin/sh /etc/rc.common
+# Copyright (C) 2007-2012 OpenWrt.org
 
 START=90
-STOP=15
+USE_PROCD=1
 
-start() {
-	config_load lingti
-	local enable
-	config_get_bool enable lingti enabled
-	if [ "$enable" -eq 0 ]; then
-	  stop
-	else
-	  /usr/bin/lingti > /dev/null 2>&1 &
-	fi
+LINGTI_BIN="/var/sbin/lingti"
+
+lingti_genconfig() {
+	[ -d /var/sbin ] || mkdir -p /var/sbin
+	[ -f $LINGTI_BIN ] || ln -s /usr/sbin/lingti $LINGTI_BIN
 }
 
-stop() {
-	config_load lingti
-	local enabled
-	config_get_bool enabled lingti enabled
-	kill -9 `pgrep -f "/usr/bin/lingti"` 2>/dev/null
+start_service() {
+	enable=$(uci get lingti.config.enabled 2>/dev/null)
+	if [ $enable -eq 1 ]; then
+		lingti_genconfig
+		procd_open_instance
+		procd_set_param command "$LINGTI_BIN"
+		procd_set_param respawn
+		procd_set_param stdout 1
+		procd_set_param stderr 1
+		procd_close_instance
+	fi
 }
