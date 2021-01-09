@@ -56,20 +56,4 @@ define Package/$(PKG_NAME)/conffiles
 /etc/config/lingti
 endef
 
-define Package/$(PKG_NAME)/postinst
-#!/bin/sh
-chmod a+x $${IPKG_INSTROOT}/etc/init.d/lingti > /dev/null 2>&1
-/etc/init.d/lingti enable > /dev/null 2>&1
-exit 0
-endef
-
-define Package/$(PKG_NAME)/prerm
-#!/bin/sh
-if [ -z "$${IPKG_INSTROOT}" ]; then
-     /etc/init.d/lingti disable
-     /etc/init.d/lingti stop
-fi
-exit 0
-endef
-
 $(eval $(call BuildPackage,$(PKG_NAME)))
