@@ -3,7 +3,7 @@ module("luci.controller.lingti",package.seeall)
 function index()
 	if not nixio.fs.access("/etc/config/lingti") then return end
 
-	entry({"admin", "services", "lingti"}, cbi("lingti"), ("LingTi GameAcc"),99).dependent=true
+	entry({"admin", "services", "lingti"}, cbi("lingti/lingti"), ("LingTi GameAcc"),99).dependent=true
 	entry({"admin", "services", "lingti", "status"}, call("act_status")).leaf=true
 end
 

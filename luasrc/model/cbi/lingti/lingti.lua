@@ -8,13 +8,13 @@ s = m:section(TypedSection, "lingti")
 s.anonymous=true
 s.addremove=false
 
-enable = s:option(Flag, "enabled", translate("Enable"))
-enable.default = 0
-enable.optional = false
+e = s:option(Flag, "enabled", translate("Enable"))
+e.default = 0
+e.optional = false
 
 local apply = luci.http.formvalue("cbi.apply")
 if apply then
-    io.popen("/etc/init.d/lingti start &")
+    io.popen("/etc/init.d/lingti restart")
 end
 
 return m
