@@ -6,14 +6,14 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=luci-app-lingtigameacc
-PKG_VERSION:=20201108
-PKG_RELEASE:=2
+PKG_NAME:=luci-app-lingtigamebooster
+PKG_VERSION:=20210118
+PKG_RELEASE:=3
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_LICENSE:=Apache-2.0
 PKG_LICENSE_FILES:=LICENSE
-PKG_MAINTAINER:=eSir Playground <https://github.com/esirplayground/luci-app-LingTiGameAcc>
+PKG_MAINTAINER:=Droid-MAX<https://github.com/Droid-MAX/luci-app-lingtigamebooster>
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -21,14 +21,14 @@ define Package/$(PKG_NAME)
 	SECTION:=luci
 	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
-	TITLE:=LuCI Support for LingTiGameAcc
-	MAINTAINER:=eSir Playground <https://github.com/esirplayground/luci-app-LingTiGameAcc>
+	TITLE:=LuCI Support for LingTi Game Booster
+	MAINTAINER:=Droid-MAX<https://github.com/Droid-MAX/luci-app-lingtigamebooster>
 	PKGARCH:=all
 	DEPENDS:=+kmod-tun
 endef
 
 define Package/$(PKG_NAME)/description
-	LuCI Support for LingTi Game Accelerator.
+	LuCI Support for LingTi Game Booster.
 endef
 
 define Build/Prepare

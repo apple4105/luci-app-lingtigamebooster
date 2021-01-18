@@ -1,5 +1,5 @@
-# luci-app-lingtigameacc
-Luci support of LingTi Game Accelerator
+# luci-app-lingtigamebooster
+Luci support of LingTi Game Booster
 
 ipk软件包的编译：
 ===================================
@@ -9,7 +9,7 @@ ipk软件包的编译：
 
 ```
         cd package
-        git clone https://github.com/Droid-MAX/luci-app-lingtigameacc.git
+        git clone https://github.com/Droid-MAX/luci-app-lingtigamebooster.git
 ```
 
 3. ### 从灵缇官网下载对应的可执行文件到插件目录,替换或覆盖其中的lingti文件(插件目录/root/usr/sbin/)
@@ -20,8 +20,8 @@ ipk软件包的编译：
 
 ```
         cd ..
-        make menuconfig # 选择 LuCI/luci-app-lingtigameacc
-        make package/luci-app-lingtigameacc/compile V=99
+        make menuconfig # 选择 LuCI/luci-app-lingtigamebooster
+        make package/luci-app-lingtigamebooster/compile V=99
 ```
 
 ### 最终你将会在SDK目录下的bin目录里找到编译好的ipk软件包！

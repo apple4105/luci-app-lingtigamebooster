@@ -1,4 +1,4 @@
 
-config lingti 'config'
+config lingti
 	option enabled '0'
 

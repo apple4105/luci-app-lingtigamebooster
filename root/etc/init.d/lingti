@@ -1,7 +1,9 @@
 #!/bin/sh /etc/rc.common
 # Copyright (C) 2007-2012 OpenWrt.org
 
-START=90
+START=99
+STOP=10
+
 USE_PROCD=1
 
 LINGTI_BIN="/var/sbin/lingti"
@@ -12,8 +14,10 @@ lingti_genconfig() {
 }
 
 start_service() {
-	enable=$(uci get lingti.config.enabled 2>/dev/null)
-	if [ $enable -eq 1 ]; then
+	local enable
+	config_load lingti
+	config_get_bool enable lingti enabled
+	if [ "$enable" -eq 1 ]; then
 		lingti_genconfig
 		procd_open_instance
 		procd_set_param command "$LINGTI_BIN"

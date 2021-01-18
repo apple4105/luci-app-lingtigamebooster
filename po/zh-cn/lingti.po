@@ -2,11 +2,8 @@
 msgid "Enable"
 msgstr "启用"
 
-msgid "LingTi GameAcc"
+msgid "LingTi Game Booster"
 msgstr "灵缇游戏加速器"
 
-msgid "LingTi Game Accelerator"
-msgstr "灵缇游戏加速器"
-
-msgid "A Paid Game Acceleration service"
-msgstr "一个需要付费的游戏加速器"
+msgid "A Paid Game Acceleration Service"
+msgstr "一个需要付费的游戏加速服务"
