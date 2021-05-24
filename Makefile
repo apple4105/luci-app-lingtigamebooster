@@ -23,7 +23,7 @@ define Package/$(PKG_NAME)
 	SUBMENU:=3. Applications
 	TITLE:=LuCI Support for LingTi Game Booster
 	MAINTAINER:=Droid-MAX<https://github.com/Droid-MAX/luci-app-lingtigamebooster>
-	PKGARCH:=all
+	PKGARCH:=x86_64
 	DEPENDS:=+kmod-tun
 endef
 
